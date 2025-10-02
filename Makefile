@@ -1,5 +1,20 @@
-NAME = So
+CC	= gcc
+CFLAGS  = -Wall -Wextra
+TARGET = diary
 
-all :
-	@echo $(NAME)
-	@echo Prof_$(LNAME).Room101
+all: $(TARGET)
+
+$(TARGET): memo.o calendar.o main.o
+	$(CC) -o $(TARGET) memo.o calender.o main.o
+	
+memo.o: memo.c
+	$(CC) $(CFLAGS) -c -o memo.o memo.c
+	
+calender.o: calender.c
+	$(CC) $(CFLAGS) -c -o calender.o calender.c
+	
+main.o: main.c
+	$(CC) $(CFLAGS) -c -o main.o main.c
+	
+clean:
+	rm -rf *.o $(TARGET)
