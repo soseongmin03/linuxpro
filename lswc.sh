@@ -1,2 +1,0 @@
-echo -n "files and directories: "
-ls | wc -l
